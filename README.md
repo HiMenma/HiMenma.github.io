@@ -1,37 +1,46 @@
-## Welcome to GitHub Pages
+# OpenCore升级过程
 
-You can use the [editor on GitHub](https://github.com/HiMenma/HiMenma.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+## 一、准备最新的OC安装包
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+[点击下载]: https://github.com/acidanthera/OpenCorePkg
 
-### Markdown
+## 二、解压并对比之前的EFI文件
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+1.将相应的驱动复制到相应文件夹
 
-```markdown
-Syntax highlighted code block
+![EFI文件格式](https://tva1.sinaimg.cn/large/008eGmZEly1gndqgvx66tj31an0gtdm5.jpg)
 
-# Header 1
-## Header 2
-### Header 3
+注意：
+		1.ACPI文件最好使用新OC文件夹里的
+		2.Drivers文件夹的文件使用新版本OC里的文件，否则可能报错。
+		3.Kexts文件夹的Lilu、VirtualSMC、WhateverGreen使用最新的驱动；没有的直接复制过去。
 
-- Bulleted
-- List
+## 三、使用ProperTree或者OCC编辑config.plist
 
-1. Numbered
-2. List
+### 1.下载地址
 
-**Bold** and _Italic_ and `Code` text
+[ProperTree]: https://github.com/corpnewt/ProperTree
+[OCC]: https://mackie100projects.altervista.org/download-opencore-configurator/
 
-[Link](url) and ![Image](src)
-```
+### 2.先用ProperTree打开config.plist创建快照
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+1.点击创建快照
 
-### Jekyll Themes
+![点击创建快照](https://tva1.sinaimg.cn/large/008eGmZEly1gndqgzir0oj308j0bxdif.jpg)
+2.浏览到OC文件夹
+![浏览到OC文件夹](https://tva1.sinaimg.cn/large/008eGmZEly1gndqh2bp2oj30kf0b4jst.jpg)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/HiMenma/HiMenma.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### 3.使用OCC对照旧config编辑新的config
 
-### Support or Contact
+注意：
+	1.使用对应版本的OCC编辑相应文件
+	2.新版的多出来的选项保持默认，其他和旧文件保持一样(每一项都要核对保持一致)
+![image-20210206131333044](https://tva1.sinaimg.cn/large/008eGmZEly1gndqm9h7yzj30zm0icaf4.jpg)
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## 四、挂载分区，替换EFI文件
+
+可能出现的问题：
+1.OC无法引导：需要进BIOS设置启动顺序
+2.
+
+[其他常见问题点击]: http://im
